@@ -1,0 +1,28 @@
+{
+    "name": "brite-verify/brite-api",
+    "type": "library",
+    "description": "Client binding for BriteVerify API",
+    "keywords": ["BriteVerify","verify","verification","validate"],
+    "homepage": "https://github.com/BriteVerify/brite-api-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander",
+            "email": "alexander@iron.io",
+            "homepage": "https://www.briteverify.com/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.0"
+    },
+    "autoload": {
+        "files": ["BriteAPIClient.php","BriteAPIContact.php"]
+    },
+    "repositories":[
+        {
+            "type":"git",
+            "url":"https://github.com/BriteVerify/brite-api-php"
+        }
+    ]
+}
