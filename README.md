@@ -1,6 +1,3 @@
-brite-api-ruby
-==============
-
 The official BriteVerify API Client for Ruby
 
 # Usage
@@ -9,12 +6,13 @@ The official BriteVerify API Client for Ruby
 require 'BriteAPIContact.php';
 require 'BriteAPIClient.php';
 
-# option 1
+# Option #1
 $client = new BriteAPIContact($api_key);
 
-# option 2
+# Option #2
 $client = new BriteAPIContact($config->api_key, array('name' => '123456', 'ip' => '1.1.1.1'));
 
+# Set/update fields
 $client->name = '1234567';
 $client->ip = '128.128.128.328';
 $client->email = 'fake@wrong.com';
@@ -44,3 +42,8 @@ $client->response['email']
 # )
 
 ```
+
+# Documentation
+
+* https://www.briteverify.com/
+* https://github.com/BriteVerify/BriteCode
