@@ -1,4 +1,4 @@
-The official BriteVerify API Client for Ruby
+The official BriteVerify API Client for PHP
 
 # Usage
 

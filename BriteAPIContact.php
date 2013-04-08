@@ -6,7 +6,7 @@
  * @link https://www.briteverify.com/
  * @link http://dev.iron.io/
  * @version 0.0.2
- * @copyright see LICENSE
+ * @copyright MIT
  */
 
 class BriteAPIContact {
