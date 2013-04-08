@@ -1,4 +1,13 @@
 <?php
+/**
+ * PHP client for BriteVerify API
+ *
+ * @link https://github.com/BriteVerify/brite-api-php
+ * @link https://www.briteverify.com/
+ * @link http://dev.iron.io/
+ * @version 0.0.2
+ * @copyright see LICENSE
+ */
 
 class BriteAPIContact {
 
@@ -13,7 +22,14 @@ class BriteAPIContact {
     public $email;
     public $address;
 
-
+    /**
+     * Initalize new contact
+     *
+     * @param string $api_key
+     * @param array $fields array of contact fields
+     * @param array $options additonal options. Supported fields:
+     *  - verify_connected: If you pass an additional parameter of "verify_connected=true", and the email is valid, we will then scan the online networks, wishlists, public directories, social networks, photo sharing sites (basically the internet itself) to see if the email is "connected" to other active accounts.
+     */
     function __construct($api_key, $fields = array(), $options = array()) {
 
         $this->api_key = $api_key;
@@ -29,7 +45,11 @@ class BriteAPIContact {
         }
     }
 
-
+    /**
+     * Verifies contact
+     *
+     * @return bool
+     */
     public function verify() {
 
         $data = array();
@@ -45,6 +65,11 @@ class BriteAPIContact {
         return $this->is_valid();
     }
 
+    /**
+     * Check contact validity.
+     *
+     * @return bool|null
+     */
     public function is_valid() {
         if ($this->response == null) return null;
 
@@ -57,7 +82,14 @@ class BriteAPIContact {
         return $valid;
     }
 
-    # valid -> unknown -> invalid
+    /**
+     * Contact status
+     * returns null if verify() didn't called yet
+     * returns statuses in that order:
+     * valid -> unknown -> invalid
+     *
+     * @return null|string
+     */
     public function status() {
         if ($this->response == null) return null;
         $status = 'valid';
@@ -74,6 +106,11 @@ class BriteAPIContact {
         return $status;
     }
 
+    /**
+     * Returns associated array in field => error form
+     *
+     * @return array|null
+     */
     public function errors() {
         if ($this->response == null) return null;
         $errors = array();
@@ -86,6 +123,11 @@ class BriteAPIContact {
         return $errors;
     }
 
+    /**
+     * Returns plain array of error codes
+     *
+     * @return array|null
+     */
     public function error_codes() {
         if ($this->response == null) return null;
         $codes = array();

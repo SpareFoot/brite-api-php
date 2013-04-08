@@ -9,6 +9,13 @@ class BriteAPIClient {
     private $fields;
 
 
+    /**
+     * Create API client for contact.
+     *
+     * @param string $api_key
+     * @param array $fields
+     * @param array $options
+     */
     function __construct($api_key, $fields = array(), $options = array()) {
         $this->api_key = $api_key;
         if (empty($this->api_key)){

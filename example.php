@@ -6,6 +6,8 @@ require 'BriteAPIClient.php';
 $config = json_decode(file_get_contents('config.json'));
 
 $client = new BriteAPIContact($config->api_key);
+# OR: $client = new BriteAPIContact($config->api_key, array('name' => '123456', 'ip' => '1.1.1.1'));
+
 $client->name = '1234567';
 $client->ip = '128.128.128.328';
 $client->email = 'fake@wrong.com';
