@@ -28,7 +28,11 @@ class BriteAPIContact {
      * @param string $api_key
      * @param array $fields array of contact fields
      * @param array $options additonal options. Supported fields:
-     *  - verify_connected: If you pass an additional parameter of "verify_connected=true", and the email is valid, we will then scan the online networks, wishlists, public directories, social networks, photo sharing sites (basically the internet itself) to see if the email is "connected" to other active accounts.
+     *  - verify_connected: If you pass an additional parameter of "verify_connected=true", and the email is valid,
+     *                      we will then scan the online networks, wishlists, public directories, social networks,
+     *                      photo sharing sites (basically the internet itself) to see if the email is "connected"
+     *                      to other active accounts.
+     *  - curl_options: Additional cURL options
      */
     function __construct($api_key, $fields = array(), $options = array()) {
 
@@ -59,7 +63,7 @@ class BriteAPIContact {
             }
         }
 
-        $client = new BriteAPIClient($this->api_key, $data);
+        $client = new BriteAPIClient($this->api_key, $data, $this->options);
         $this->response = $client->verify();
 
         return $this->is_valid();
@@ -139,8 +143,5 @@ class BriteAPIContact {
 
         return array_unique($codes);
     }
-
-
-
 
 }
