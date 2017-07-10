@@ -1,5 +1,5 @@
 {
-    "name": "brite-verify/brite-api",
+    "name": "sparefoot/brite-api",
     "type": "library",
     "description": "Client binding for BriteVerify API",
     "keywords": ["BriteVerify","verify","verification","validate"],
@@ -22,7 +22,7 @@
     "repositories":[
         {
             "type":"git",
-            "url":"https://github.com/BriteVerify/brite-api-php"
+            "url":"https://github.com/sparefoot/brite-api-php"
         }
     ]
 }
