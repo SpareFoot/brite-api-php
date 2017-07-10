@@ -40,6 +40,9 @@ class BriteAPIClient {
         foreach($requests as $i => $url) {
             $curl_array[$i] = curl_init($url);
             curl_setopt($curl_array[$i], CURLOPT_RETURNTRANSFER, true);
+            foreach ($this->curl_options() as $curlOption=>$value) {
+                curl_setopt($curl_array[$i], $curlOption, $value);
+            }
             curl_multi_add_handle($mh, $curl_array[$i]);
         }
         $running = null;
@@ -99,11 +102,15 @@ class BriteAPIClient {
         return $url . '?' . http_build_query($params);
     }
 
-
-
-
-
-
-
+    private function curl_options() {
+        if (isset($this->options['curl_options']) && $this->options['curl_options']) {
+            if (! is_array($this->options['curl_options'])) {
+                throw new Exception("Curl options must be an array");
+            }
+            return $this->options['curl_options'];
+        } else {
+            return [];
+        }
+    }
 
 }
